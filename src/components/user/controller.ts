@@ -25,9 +25,9 @@ export class UserController {
 
     public async getUser(req: Request, res: Response): Promise<void> {
         try {
-            const { userId } = req.params;
+            const { email } = req.params;
 
-            const user = await this.userService.getUser(userId);
+            const user = await this.userService.getUser(email);
 
             res.status(STATUS_CODES.OK).send({ success: true, message: 'User was successfully founded', data: user });
         } catch (error) {
